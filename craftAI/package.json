@@ -1,0 +1,10 @@
+{
+  "name": "aia-template-studio",
+  "private": true,
+  "scripts": {
+    "server": "cd server && npm start",
+    "web": "cd web && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "install:all": "cd server && npm install && cd ../web && npm install"
+  }
+}

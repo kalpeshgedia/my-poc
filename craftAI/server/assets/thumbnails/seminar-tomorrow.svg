@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320">
+  <!-- Background photo area -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="50%" stop-color="#e85d04"/>
+      <stop offset="100%" stop-color="#faa307"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="200" fill="url(#bg)"/>
+  <!-- AIA logo -->
+  <circle cx="20" cy="18" r="12" fill="none" stroke="white" stroke-width="1.5"/>
+  <polygon points="20,8 27,22 13,22" fill="none" stroke="white" stroke-width="1.2"/>
+  <text x="38" y="20" font-family="Arial Black" font-size="14" fill="white" font-weight="900">AIA</text>
+  <text x="38" y="29" font-family="Arial" font-size="5" fill="rgba(255,255,255,0.8)">HEALTHIER, LONGER, BETTER LIVES</text>
+  <!-- Top right nav -->
+  <text x="240" y="14" font-family="Arial" font-size="5" fill="rgba(255,255,255,0.7)" text-anchor="end">PLANNING / PROTECTING / THRIVING</text>
+  <!-- Headline -->
+  <text x="12" y="100" font-family="Arial Black" font-size="28" fill="white" font-weight="900">YOUR</text>
+  <text x="12" y="130" font-family="Arial Black" font-size="28" fill="white" font-weight="900">TOMORROW</text>
+  <text x="12" y="160" font-family="Arial Black" font-size="28" fill="#e8001c" font-weight="900">MATTERS</text>
+  <text x="12" y="178" font-family="Arial" font-size="9" fill="rgba(255,255,255,0.9)">Practical strategies for a more</text>
+  <text x="12" y="190" font-family="Arial" font-size="9" fill="rgba(255,255,255,0.9)">confident retirement</text>
+  <!-- White bottom section -->
+  <rect x="0" y="200" width="240" height="120" fill="white"/>
+  <!-- Event details -->
+  <text x="15" y="225" font-family="Arial" font-size="9" fill="#1a2b5e" font-weight="bold">17 OCT 2025</text>
+  <text x="15" y="237" font-family="Arial" font-size="8" fill="#555">10:00 AM – 12:00 PM</text>
+  <text x="100" y="225" font-family="Arial" font-size="9" fill="#1a2b5e" font-weight="bold">AIA Singapore</text>
+  <text x="100" y="237" font-family="Arial" font-size="8" fill="#555">Raffles Place</text>
+  <!-- Register button -->
+  <rect x="15" y="248" width="90" height="22" fill="#e8001c" rx="11"/>
+  <text x="60" y="262" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">REGISTER NOW ›</text>
+  <!-- QR placeholder -->
+  <rect x="180" y="244" width="46" height="46" fill="white" stroke="#ccc" stroke-width="1" rx="2"/>
+  <rect x="184" y="248" width="14" height="14" fill="none" stroke="#000" stroke-width="1.5"/>
+  <rect x="187" y="251" width="8" height="8" fill="#000"/>
+  <rect x="204" y="248" width="14" height="14" fill="none" stroke="#000" stroke-width="1.5"/>
+  <rect x="207" y="251" width="8" height="8" fill="#000"/>
+  <rect x="184" y="267" width="14" height="14" fill="none" stroke="#000" stroke-width="1.5"/>
+  <rect x="187" y="270" width="8" height="8" fill="#000"/>
+  <!-- Agent area -->
+  <circle cx="30" cy="295" r="14" fill="#d0d0d0"/>
+  <text x="52" y="289" font-family="Arial" font-size="9" fill="#1a1a1a" font-weight="bold">Your Name</text>
+  <text x="52" y="301" font-family="Arial" font-size="7" fill="#555">Financial Services Consultant</text>
+  <text x="52" y="311" font-family="Arial" font-size="7" fill="#555">+65 9123 4567</text>
+  <!-- Pink corner decoration -->
+  <path d="M 200 280 L 240 280 L 240 320 Z" fill="#e8001c" opacity="0.15"/>
+  <path d="M 215 320 L 240 300 L 240 320 Z" fill="#e8001c" opacity="0.3"/>
+  <!-- Disclaimer -->
+  <text x="12" y="318" font-family="Arial" font-size="5" fill="#aaa">This is for general information only. T&amp;C apply.</text>
+</svg>

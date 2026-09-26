@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#2d3748" rx="8"/>
+  <circle cx="200" cy="145" r="70" fill="#4a5568"/>
+  <path d="M 60 400 Q 60 270 200 270 Q 340 270 340 400 Z" fill="#4a5568"/>
+  <text x="200" y="360" font-family="Arial" font-size="16" fill="#718096" text-anchor="middle">Click to upload photo</text>
+</svg>

@@ -1,0 +1,27 @@
+{
+  "id": "seminar-tomorrow",
+  "name": "Your Tomorrow Matters",
+  "category": "seminar",
+  "description": "Practical strategies for a more confident retirement",
+  "thumbnail": "/assets/thumbnails/seminar-tomorrow.svg",
+  "component": "SeminarTomorrow",
+  "width": 720,
+  "height": 960,
+  "fields": {
+    "headline": "YOUR\nTOMORROW\nMATTERS",
+    "subtitle": "Practical strategies for a more confident retirement",
+    "eventDate": "17 OCT 2025",
+    "eventTime": "10:00 AM – 12:00 PM",
+    "eventVenue": "AIA Singapore\nRaffles Place",
+    "eventBenefit": "Expert insights\nReal solutions\nA brighter tomorrow",
+    "ctaText": "REGISTER NOW",
+    "qrCode": "/assets/images/placeholder-qr.svg",
+    "bgPhoto": "/assets/images/placeholder-mountain.svg",
+    "agentPhoto": "/assets/images/placeholder-agent-circle.svg",
+    "agentName": "Your Name",
+    "agentTitle": "Financial Services Consultant",
+    "agentCompany": "AIA Singapore",
+    "agentPhone": "+65 9123 4567",
+    "agentEmail": "yourname@aia.com.sg"
+  }
+}

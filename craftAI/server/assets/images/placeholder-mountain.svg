@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480">
+  <defs>
+    <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="40%" stop-color="#e85d04"/>
+      <stop offset="70%" stop-color="#f48c06"/>
+      <stop offset="100%" stop-color="#faa307"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="480" fill="url(#sunset)"/>
+  <!-- City skyline -->
+  <rect x="0" y="320" width="720" height="160" fill="#0d1117"/>
+  <rect x="20" y="260" width="30" height="60" fill="#0d1117"/>
+  <rect x="60" y="240" width="25" height="80" fill="#0d1117"/>
+  <rect x="95" y="270" width="35" height="50" fill="#0d1117"/>
+  <rect x="580" y="250" width="40" height="70" fill="#0d1117"/>
+  <rect x="630" y="230" width="30" height="90" fill="#0d1117"/>
+  <rect x="670" y="260" width="35" height="60" fill="#0d1117"/>
+  <!-- Mountain silhouette -->
+  <path d="M 0 400 L 200 200 L 350 300 L 500 180 L 720 350 L 720 480 L 0 480 Z" fill="#0d1117"/>
+  <!-- Two people silhouette -->
+  <circle cx="340" cy="220" r="14" fill="#0d1117"/>
+  <circle cx="365" cy="222" r="13" fill="#0d1117"/>
+  <path d="M 320 234 Q 340 260 360 234" fill="#0d1117"/>
+  <path d="M 345 235 Q 365 262 385 235" fill="#0d1117"/>
+  <text x="360" y="460" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.5)" text-anchor="middle">Upload background photo</text>
+</svg>

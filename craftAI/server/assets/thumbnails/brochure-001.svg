@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="white"/>
+  <rect x="0" y="0" width="130" height="300" fill="#e8001c"/>
+  <text x="14" y="40" font-family="Arial" font-size="16" fill="white" font-weight="bold">AIA</text>
+  <text x="14" y="90" font-family="Georgia" font-size="22" fill="white" font-weight="bold">AIA Vital</text>
+  <text x="14" y="115" font-family="Georgia" font-size="22" fill="white" font-weight="bold">Protect</text>
+  <text x="14" y="140" font-family="Georgia" font-size="22" fill="white" font-weight="bold">Plus</text>
+  <text x="14" y="175" font-family="Arial" font-size="11" fill="rgba(255,255,255,0.85)">Complete protection</text>
+  <text x="14" y="192" font-family="Arial" font-size="11" fill="rgba(255,255,255,0.85)">for your family</text>
+  <text x="14" y="220" font-family="Arial" font-size="10" fill="white">✓ Life Coverage</text>
+  <text x="14" y="238" font-family="Arial" font-size="10" fill="white">✓ Critical Illness</text>
+  <text x="14" y="256" font-family="Arial" font-size="10" fill="white">✓ Hospitalisation</text>
+  <rect x="150" y="20" width="130" height="160" fill="#e2e8f0" rx="4"/>
+  <circle cx="215" cy="80" r="35" fill="#cbd5e0"/>
+  <path d="M 155 180 Q 155 135 215 135 Q 275 135 275 180 Z" fill="#cbd5e0"/>
+  <rect x="150" y="200" width="130" height="70" fill="#f8f8f8" rx="4"/>
+  <text x="158" y="218" font-family="Arial" font-size="8" fill="#e8001c" font-weight="bold">CONTACT AGENT</text>
+  <text x="158" y="235" font-family="Arial" font-size="11" fill="#1a1a1a" font-weight="bold">Your Name</text>
+  <text x="158" y="252" font-family="Arial" font-size="10" fill="#333">+60 12-345 6789</text>
+  <text x="14" y="292" font-family="Arial" font-size="7" fill="rgba(255,255,255,0.4)">AIA Insurance Berhad. Terms apply.</text>
+</svg>

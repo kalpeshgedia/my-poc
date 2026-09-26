@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 70">
+  <!-- Red circle with mountain icon -->
+  <circle cx="28" cy="28" r="26" fill="#e8001c"/>
+  <!-- Mountain shape -->
+  <polygon points="28,8 44,38 12,38" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+  <polygon points="21,30 28,18 35,30" fill="white"/>
+  <!-- AIA text -->
+  <text x="64" y="36" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="#e8001c" letter-spacing="3">AIA</text>
+  <!-- Tagline -->
+  <text x="64" y="52" font-family="Arial" font-weight="600" font-size="9.5" fill="#1a2b5e" letter-spacing="0.8">HEALTHIER, LONGER, BETTER LIVES</text>
+</svg>

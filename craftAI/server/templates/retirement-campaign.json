@@ -1,0 +1,31 @@
+{
+  "id": "retirement-campaign",
+  "name": "Retirement Planning Campaign",
+  "category": "campaign",
+  "description": "What kind of retirement are you really planning for?",
+  "thumbnail": "/assets/thumbnails/retirement-campaign.svg",
+  "component": "RetirementCampaign",
+  "width": 800,
+  "height": 800,
+  "fields": {
+    "headline": "WHAT KIND OF\nRETIREMENT\nARE YOU REALLY\nPLANNING FOR?",
+    "subtitle": "See how the right strategies may support the retirement lifestyle you're working towards.",
+    "tier1Label": "ESSENTIAL LIFESTYLE",
+    "tier1Value": "$1.5K /month",
+    "tier1Desc": "Covers the essentials, with limited flexibility.",
+    "tier2Label": "COMFORTABLE LIFESTYLE",
+    "tier2Value": "$3.5K /month",
+    "tier2Desc": "Enjoy everyday comforts with occasional travel.",
+    "tier3Label": "ENHANCED LIFESTYLE",
+    "tier3Value": "$6K /month",
+    "tier3Desc": "Live life on your terms, with greater peace of mind.",
+    "ctaText": "Start Planning Towards Your Retirement With AIA",
+    "sourceUrl": "https://treeofwealth.sg",
+    "agentPhoto": "/assets/images/placeholder-agent.svg",
+    "agentName": "Your Name",
+    "agentTitle": "Financial Service Consultant",
+    "agentRnf": "RNF: XXXXXXXXXXXX",
+    "agentEmail": "yourname@aia.com.sg",
+    "bgPhoto": "/assets/images/placeholder-couple.svg"
+  }
+}

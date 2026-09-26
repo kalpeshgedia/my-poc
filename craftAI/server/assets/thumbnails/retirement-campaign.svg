@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="white" stroke="#1a2b5e" stroke-width="3"/>
+  <!-- Top header -->
+  <rect x="0" y="0" width="300" height="65" fill="white"/>
+  <!-- AIA logo area -->
+  <circle cx="22" cy="22" r="16" fill="#e8001c"/>
+  <polygon points="22,8 30,28 14,28" fill="none" stroke="white" stroke-width="1.5"/>
+  <text x="44" y="24" font-family="Arial Black" font-size="18" fill="#e8001c" font-weight="900">AIA</text>
+  <text x="44" y="35" font-family="Arial" font-size="6" fill="#1a2b5e">HEALTHIER, LONGER, BETTER LIVES</text>
+  <!-- Couple photo placeholder -->
+  <rect x="160" y="0" width="140" height="100" fill="#e8f4f8" rx="0"/>
+  <circle cx="210" cy="35" r="18" fill="#b0cfe0"/>
+  <circle cx="248" cy="32" r="17" fill="#87b9d0"/>
+  <path d="M 170 100 Q 210 70 250 100 L 300 100 L 300 0 L 160 0 Z" fill="rgba(135,185,208,0.3)"/>
+  <!-- Headline -->
+  <text x="12" y="80" font-family="Arial Black" font-size="13" fill="#1a2b5e" font-weight="900">WHAT KIND OF</text>
+  <text x="12" y="97" font-family="Arial Black" font-size="13" fill="#e8001c" font-weight="900">RETIREMENT</text>
+  <text x="12" y="114" font-family="Arial Black" font-size="11" fill="#1a2b5e" font-weight="900">ARE YOU REALLY</text>
+  <text x="12" y="130" font-family="Arial Black" font-size="11" fill="#1a2b5e" font-weight="900">PLANNING FOR?</text>
+  <!-- Divider -->
+  <rect x="12" y="138" width="40" height="2" fill="#e8001c"/>
+  <!-- Subtitle -->
+  <text x="12" y="152" font-family="Arial" font-size="7" fill="#555">See how the right strategies may support</text>
+  <text x="12" y="163" font-family="Arial" font-size="7" fill="#555">the retirement lifestyle.</text>
+  <!-- Tier boxes -->
+  <rect x="12" y="174" width="83" height="60" fill="white" stroke="#e0e0e0" stroke-width="1" rx="3"/>
+  <rect x="12" y="174" width="83" height="18" fill="#1a2b5e" rx="3 3 0 0"/>
+  <text x="53" y="186" font-family="Arial" font-size="6" fill="white" text-anchor="middle" font-weight="bold">ESSENTIAL</text>
+  <text x="53" y="202" font-family="Arial Black" font-size="11" fill="#e8001c" text-anchor="middle">$1.5K</text>
+  <text x="53" y="215" font-family="Arial" font-size="6" fill="#777" text-anchor="middle">/month</text>
+  <rect x="109" y="174" width="83" height="60" fill="white" stroke="#e0e0e0" stroke-width="1" rx="3"/>
+  <rect x="109" y="174" width="83" height="18" fill="#e8001c" rx="3 3 0 0"/>
+  <text x="150" y="186" font-family="Arial" font-size="6" fill="white" text-anchor="middle" font-weight="bold">COMFORTABLE</text>
+  <text x="150" y="202" font-family="Arial Black" font-size="11" fill="#e8001c" text-anchor="middle">$3.5K</text>
+  <text x="150" y="215" font-family="Arial" font-size="6" fill="#777" text-anchor="middle">/month</text>
+  <rect x="206" y="174" width="83" height="60" fill="white" stroke="#e0e0e0" stroke-width="1" rx="3"/>
+  <rect x="206" y="174" width="83" height="18" fill="#8B7355" rx="3 3 0 0"/>
+  <text x="247" y="186" font-family="Arial" font-size="6" fill="white" text-anchor="middle" font-weight="bold">ENHANCED</text>
+  <text x="247" y="202" font-family="Arial Black" font-size="11" fill="#8B7355" text-anchor="middle">$6K</text>
+  <text x="247" y="215" font-family="Arial" font-size="6" fill="#777" text-anchor="middle">/month</text>
+  <!-- CTA -->
+  <rect x="12" y="244" width="276" height="28" fill="#e8001c" rx="14"/>
+  <text x="150" y="261" font-family="Arial" font-size="8" fill="white" text-anchor="middle" font-weight="bold">Start Planning Towards Your Retirement →</text>
+  <!-- Disclaimer -->
+  <rect x="12" y="278" width="276" height="16" fill="#f5f5f5" rx="3"/>
+  <text x="150" y="288" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">Investments subject to risks. T&amp;C apply.</text>
+</svg>
