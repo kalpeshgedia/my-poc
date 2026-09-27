@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { Poster, TPL_MAP, SIZES } from '@/lib/mockData';
 
 const PHOTO_URLS: Record<string, string> = {
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick, interactive }: Props) {
+  const [hovered, setHovered] = useState<string | null>(null);
+
   const tpl = TPL_MAP[poster.templateId];
   const sz = SIZES[poster.size];
   const W = sz.w * scale;
@@ -30,7 +33,7 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
   const isRed   = tpl.bg === '#D31145' || tpl.bg === '#9A0828';
   const isDark  = tpl.bg === '#111' || tpl.bg === '#1a1a2e';
 
-  const photoKey = tpl.heroImage || 'couple';
+  const photoKey = (poster as Poster & { heroImage?: string }).heroImage || tpl.heroImage || 'couple';
   const photoUrl = PHOTO_URLS[photoKey] || PHOTO_URLS.couple;
 
   // Derived text colors
@@ -62,14 +65,27 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
       ? (sz.kind === 'wide' ? H : sz.kind === 'square' ? H : H * 0.5)
       : H);
 
-  const slot = (name: string) => ({
-    outline: selectedSlot === name ? `${2.5 * scale}px solid #D31145` : (interactive ? undefined : undefined),
-    outlineOffset: selectedSlot === name ? `${3 * scale}px` : undefined,
+  const slot = (name: string): React.CSSProperties => ({
+    outline: selectedSlot === name
+      ? `${2.5 * scale}px solid #D31145`
+      : (interactive && hovered === name ? `${1.5 * scale}px dashed rgba(211,17,69,0.5)` : undefined),
+    outlineOffset: `${3 * scale}px`,
     cursor: interactive ? 'pointer' : 'default',
     borderRadius: 2 * scale,
+    position: 'relative' as const,
   });
 
-  const click = (name: string) => interactive && onSlotClick ? () => onSlotClick(name) : undefined;
+  const handlers = (name: string): React.HTMLAttributes<HTMLElement> => interactive ? {
+    onClick: onSlotClick ? () => onSlotClick(name) : undefined,
+    onMouseEnter: () => setHovered(name),
+    onMouseLeave: () => setHovered(null),
+  } : {};
+
+  const cameraHint = (
+    <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)', display: 'grid', placeItems: 'center', pointerEvents: 'none', zIndex: 10 }}>
+      <div style={{ background: 'rgba(0,0,0,0.6)', color: '#fff', borderRadius: 8, padding: '6px 12px', fontSize: 11 * scale, fontWeight: 600 }}>Click to change photo</div>
+    </div>
+  );
 
   return (
     <div
@@ -87,12 +103,13 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
         <>
           {/* Top image zone */}
           <div
-            style={{ position: 'absolute', top: 0, left: 0, right: 0, height: imageH, overflow: 'hidden', ...slot('heroImage') }}
-            onClick={click('heroImage')}
+            style={{ ...slot('heroImage'), position: 'absolute', top: 0, left: 0, right: 0, height: imageH, overflow: 'hidden' }}
+            {...handlers('heroImage')}
           >
             <img src={photoUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 20%', display: 'block' }} />
             {/* Top fade for logo readability */}
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 45%)' }} />
+            {interactive && hovered === 'heroImage' && cameraHint}
           </div>
 
           {/* AIA logo */}
@@ -100,19 +117,19 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
 
           {/* Text column */}
           <div style={{ position: 'absolute', top: imageH + padV, left: pad, right: pad, display: 'flex', flexDirection: 'column', gap: 14 * scale }}>
-            <div style={{ ...slot('eyebrow'), fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: eyebrowColor }} onClick={click('eyebrow')}>
+            <div style={{ ...slot('eyebrow'), fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: eyebrowColor }} {...handlers('eyebrow')}>
               {poster.eyebrow}
             </div>
-            <div style={{ ...slot('headline'), fontSize: fH, fontWeight: 700, lineHeight: 1.1, color: headlineColor, letterSpacing: '-0.02em' }} onClick={click('headline')}>
+            <div style={{ ...slot('headline'), fontSize: fH, fontWeight: 700, lineHeight: 1.1, color: headlineColor, letterSpacing: '-0.02em' }} {...handlers('headline')}>
               {poster.headline}
             </div>
             {poster.body && (
-              <div style={{ ...slot('body'), fontSize: fBody, lineHeight: 1.45, color: bodyColor }} onClick={click('body')}>
+              <div style={{ ...slot('body'), fontSize: fBody, lineHeight: 1.45, color: bodyColor }} {...handlers('body')}>
                 {poster.body}
               </div>
             )}
             {poster.cta && (
-              <div style={{ marginTop: 8 * scale }} onClick={click('cta')}>
+              <div style={{ marginTop: 8 * scale }} {...handlers('cta')}>
                 <span style={{ ...slot('cta'), display: 'inline-flex', alignItems: 'center', background: ctaBg, color: ctaText, borderRadius: 999, padding: `${fCta * 0.42}px ${fCta * 0.95}px`, fontSize: fCta, fontWeight: 700 }}>
                   {poster.cta}
                 </span>
@@ -131,7 +148,13 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
       {isBleed && (
         <>
           {/* Full-bleed image */}
-          <img src={photoUrl} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 20%' }} onClick={click('heroImage')} />
+          <div
+            style={{ ...slot('heroImage'), position: 'absolute', inset: 0 }}
+            {...handlers('heroImage')}
+          >
+            <img src={photoUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 20%' }} />
+            {interactive && hovered === 'heroImage' && cameraHint}
+          </div>
 
           {/* Scrim */}
           <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, rgba(${isRed ? '180,0,50' : '20,14,30'},.88) ${sz.kind === 'wide' ? '100%' : '50%'}, transparent)` }} />
@@ -149,12 +172,12 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
               ? { left: 52 * scale, top: 96 * scale, width: W * 0.56, display: 'flex', flexDirection: 'column', gap: 14 * scale }
               : { bottom: 150 * scale, left: pad, right: pad, display: 'flex', flexDirection: 'column', gap: 14 * scale }),
           }}>
-            <div style={{ fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }} onClick={click('eyebrow')}>{poster.eyebrow}</div>
-            <div style={{ fontSize: fH, fontWeight: 700, lineHeight: 1.1, color: '#fff', letterSpacing: '-0.02em' }} onClick={click('headline')}>{poster.headline}</div>
-            {poster.body && <div style={{ fontSize: fBody, lineHeight: 1.45, color: 'rgba(255,255,255,0.88)' }} onClick={click('body')}>{poster.body}</div>}
+            <div style={{ fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)' }} {...handlers('eyebrow')}>{poster.eyebrow}</div>
+            <div style={{ fontSize: fH, fontWeight: 700, lineHeight: 1.1, color: '#fff', letterSpacing: '-0.02em' }} {...handlers('headline')}>{poster.headline}</div>
+            {poster.body && <div style={{ fontSize: fBody, lineHeight: 1.45, color: 'rgba(255,255,255,0.88)' }} {...handlers('body')}>{poster.body}</div>}
             {poster.cta && (
               <div style={{ marginTop: 8 * scale }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', background: '#FFFFFF', color: '#D31145', borderRadius: 999, padding: `${fCta * 0.42}px ${fCta * 0.95}px`, fontSize: fCta, fontWeight: 700 }} onClick={click('cta')}>{poster.cta}</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', background: '#FFFFFF', color: '#D31145', borderRadius: 999, padding: `${fCta * 0.42}px ${fCta * 0.95}px`, fontSize: fCta, fontWeight: 700 }} {...handlers('cta')}>{poster.cta}</span>
               </div>
             )}
           </div>
@@ -178,9 +201,21 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
           {/* Photo (right / bottom) */}
           {sz.kind === 'wide' || sz.kind === 'square'
             ? (
-              <img src={photoUrl} alt="" style={{ position: 'absolute', top: 0, right: 0, bottom: 0, width: sz.kind === 'square' ? '48%' : '50%', objectFit: 'cover', objectPosition: '50% 20%', height: '100%' }} onClick={click('heroImage')} />
+              <div
+                style={{ ...slot('heroImage'), position: 'absolute', top: 0, right: 0, bottom: 0, width: sz.kind === 'square' ? '48%' : '50%', overflow: 'hidden' }}
+                {...handlers('heroImage')}
+              >
+                <img src={photoUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 20%' }} />
+                {interactive && hovered === 'heroImage' && cameraHint}
+              </div>
             ) : (
-              <img src={photoUrl} alt="" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: H * 0.5, width: '100%', objectFit: 'cover', objectPosition: '50% 20%' }} onClick={click('heroImage')} />
+              <div
+                style={{ ...slot('heroImage'), position: 'absolute', left: 0, right: 0, bottom: 0, top: H * 0.5, overflow: 'hidden' }}
+                {...handlers('heroImage')}
+              >
+                <img src={photoUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 20%' }} />
+                {interactive && hovered === 'heroImage' && cameraHint}
+              </div>
             )
           }
 
@@ -203,12 +238,12 @@ export default function PosterCanvas({ poster, scale, selectedSlot, onSlotClick,
               : { left: 72 * scale, top: 164 * scale, width: W - 144 * scale, maxHeight: H * 0.5 - 196 * scale }),
             display: 'flex', flexDirection: 'column', gap: 14 * scale,
           }}>
-            <div style={{ fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: textOnDark ? 'rgba(255,255,255,0.75)' : '#8A93A2' }} onClick={click('eyebrow')}>{poster.eyebrow}</div>
-            <div style={{ fontSize: fH * (sz.kind === 'square' ? 0.84 : 1), fontWeight: 700, lineHeight: 1.1, color: textOnDark ? '#fff' : '#D31145', letterSpacing: '-0.02em' }} onClick={click('headline')}>{poster.headline}</div>
-            {poster.body && <div style={{ fontSize: fBody, lineHeight: 1.45, color: textOnDark ? 'rgba(255,255,255,0.88)' : '#5B6472' }} onClick={click('body')}>{poster.body}</div>}
+            <div style={{ fontSize: fEye, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: textOnDark ? 'rgba(255,255,255,0.75)' : '#8A93A2' }} {...handlers('eyebrow')}>{poster.eyebrow}</div>
+            <div style={{ fontSize: fH * (sz.kind === 'square' ? 0.84 : 1), fontWeight: 700, lineHeight: 1.1, color: textOnDark ? '#fff' : '#D31145', letterSpacing: '-0.02em' }} {...handlers('headline')}>{poster.headline}</div>
+            {poster.body && <div style={{ fontSize: fBody, lineHeight: 1.45, color: textOnDark ? 'rgba(255,255,255,0.88)' : '#5B6472' }} {...handlers('body')}>{poster.body}</div>}
             {poster.cta && (
               <div style={{ marginTop: 8 * scale }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', background: ctaBg, color: ctaText, borderRadius: 999, padding: `${fCta * 0.42}px ${fCta * 0.95}px`, fontSize: fCta, fontWeight: 700 }} onClick={click('cta')}>{poster.cta}</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', background: ctaBg, color: ctaText, borderRadius: 999, padding: `${fCta * 0.42}px ${fCta * 0.95}px`, fontSize: fCta, fontWeight: 700 }} {...handlers('cta')}>{poster.cta}</span>
               </div>
             )}
           </div>

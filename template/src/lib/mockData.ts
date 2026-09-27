@@ -80,6 +80,7 @@ export interface Poster {
   headline: string;
   body?: string;
   cta?: string;
+  heroImage?: string;
 }
 
 export const ADVISER = {
